@@ -30,5 +30,29 @@ t.test(x = set$Petal.Length, y= virg$Petal.Length)
 t.test(x = veris$Petal.Length, y = virg$Petal.Length)
 
 
+# aov(formula = Petal.lenght ~ Species, data = iris) # x~y ispitujemo da li je petal lenght ista u svim vrstama u dati iris
+petal.lenght.aov <- aov(formula = Petal.Lenght ~ Species, data = iris)
+
+summary(object = petal.lenght.aov)
+
+sink(file = "output/petal-length-anova.txt")
+summary(object = petal.length.aov)
+sink()
+
+
+
+# Challenge 2
+# Use ANOVA to test for differences in sepal width among the three species. 
+# What is the value of the F-statistic?
+
+sepal.width.aov <- aov(formula = Sepal.Width ~ Species, data = iris)
+
+summary(object = sepal.width.aov)
+
+sink(file = "output/sepal-width-aov.txt")
+summary(object = sepal.lenght.aov)
+sink()
+
+
 
 
