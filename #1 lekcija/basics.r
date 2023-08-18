@@ -56,7 +56,38 @@ sink()
 
 # Linear regression
 
+allgap <- read.csv(file = "gdpdata",stringsAsFactors = TRUE)
+head(allgap)
 
+gapminder <- allgap(allgap$Year ==  2007,)
+
+plot(x=gapminder$gdpPercap , y=gapminder$LifeExp)
+
+
+
+# jos koda:
+
+
+# 
+
+# Challenge 3
+# Test for a relationship between life expectancy and log base 2 of GDP for the 1982 data. 
+# How does life expectancy change with a four-fold increase in GDP?
+
+allData <- read.csv(file = "gdpdata",stringsAsFactors = TRUE)
+
+mojaData <- allData(allData$Year == 1982,)
+
+mojaData$log2gdp <- log2(mojaData$gdpPercap)
+
+plot(x= mojaData$log2gdp ,y=mojaData$LifeExp, xlab = "log base 2 of GDP", ylab = "Life Expectancy" )
+
+mojaData.gdp.lm <- lm(formula = lifeExp ~ logGDP,data = mojaData) # isto sto i aov ali lm 
+
+# cuvanje podataka u fajl
+sink(file = "output/lifeExp-gdp-regression.txt")
+sumary(mojaData.gdp.lm)
+sink()
 
 
 
