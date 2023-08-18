@@ -54,5 +54,9 @@ summary(object = sepal.lenght.aov)
 sink()
 
 
+# Linear regression
+
+
+
 
 
